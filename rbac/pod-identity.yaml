@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: identity-demo
+  namespace: rbac-lab
+spec:
+  serviceAccountName: pod-reader
+  automountServiceAccountToken: false
+  containers:
+    - name: app
+      image: busybox:1.36
+      command: ["sh", "-c", "sleep 3600"]
